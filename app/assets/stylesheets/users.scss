@@ -1,3 +1,25 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  position: absolute;
+}
+
+.box {
+  position: relative;
+}
+
+.form {
+  display: inline-flex
+}
+
+th {
+  border: 1px solid #000;
+}
+
+.importers {
+  width: 450px;
+  height: 100%
+}
+

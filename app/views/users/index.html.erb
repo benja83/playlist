@@ -1,34 +1,57 @@
 <% flash[:notice] %>
-<h1>Users List</h1>
 <table>
     <thead>
         <tr>
-            <th>id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>User_name</th>
             <th>
-                Import user data
-                <div>
-                    <%= form_tag import_users_path, multipart: true do %>
-                        <%= file_field_tag :file %>
-                        <%= submit_tag 'Import CSV!' %>
-                    <% end %>
-                </div>
+                <h1>Users List</h1>
+            </th>
+            <th>
+                <h1>Import data</h1>
             </th>
         </tr>
     </thead>
     <tbody>
-
-        <% @users.each do |user| %>
-            <tr>
-                <th><%= user.id %></th>
-                <th><%= user.first_name %></th>
-                <th><%= user.last_name %></th>
-                <th><%= user.email %></th>
-                <th><%= user.user_name %></th>
-            </tr>
-        <% end %>
+        <tr>
+            <th>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>User_name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @users.each do |user| %>
+                            <tr>
+                                <th><%= user.id %></th>
+                                <th><%= user.first_name %></th>
+                                <th><%= user.last_name %></th>
+                                <th><%= user.email %></th>
+                                <th><%= user.user_name %></th>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </th>
+            <th class="container importers">
+                <table>
+                    <tr>
+                        <div class="box">
+                            Import user data
+                            <div class="form">
+                                <%= form_tag import_users_path, multipart: true do %>
+                                    <%= file_field_tag :file, required: true %>
+                                    <%= submit_tag 'Import CSV!' %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </tr>
+                </table>
+            </th>
+        </tr>
     </tbody>
 </table>
+
