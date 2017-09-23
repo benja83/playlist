@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923080537) do
+ActiveRecord::Schema.define(version: 20170923142158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mp3s", force: :cascade do |t|
+    t.string   "title"
+    t.string   "interpret"
+    t.string   "album"
+    t.integer  "track"
+    t.integer  "year"
+    t.string   "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "mp3s", ["title"], name: "index_mp3s_on_title", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
