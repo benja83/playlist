@@ -6,5 +6,7 @@ class UsersController < ApplicationController
   end
 
   def import
+    User.import(params[:file])
+    redirect_to users_path, notice: 'User data imported'
   end
 end
