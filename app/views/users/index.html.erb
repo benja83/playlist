@@ -2,10 +2,10 @@
 <table>
     <thead>
         <tr>
-            <th>
+            <th class="user_data">
                 <h1>Users List</h1>
             </th>
-            <th>
+            <th class="importers">
                 <h1>Import data</h1>
             </th>
         </tr>
@@ -37,19 +37,24 @@
                 </table>
             </th>
             <th class="container importers">
-                <table>
-                    <tr>
-                        <div class="box">
-                            Import user data
-                            <div class="form">
-                                <%= form_tag import_users_path, multipart: true do %>
-                                    <%= file_field_tag :file, required: true %>
-                                    <%= submit_tag 'Import CSV!' %>
-                                <% end %>
-                            </div>
-                        </div>
-                    </tr>
-                </table>
+                <div class="box">
+                    Import user data
+                    <div class="form">
+                        <%= form_tag import_users_path, multipart: true do %>
+                            <%= file_field_tag :file, required: true %>
+                            <%= submit_tag 'Import CSV!' %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="box">
+                    Import mp3 data
+                    <div class="form">
+                        <%= form_tag import_mp3s_path, multipart: true do %>
+                            <%= file_field_tag :file, required: true %>
+                            <%= submit_tag 'Import CSV!' %>
+                        <% end %>
+                    </div>
+                </div>
             </th>
         </tr>
     </tbody>
