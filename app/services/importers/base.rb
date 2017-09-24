@@ -15,7 +15,7 @@ module Importers
         begin
           @row = csv_row.to_hash
           yield
-        rescue ActiveRecord::UnknownAttributeError => error
+        rescue ActiveRecord::UnknownAttributeError, ActiveRecord::RecordNotUnique => error
           logger.error(error_message_from(error))
           next
         end

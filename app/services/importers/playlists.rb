@@ -11,8 +11,9 @@ module Importers
       logger.info(start_import_message(file))
 
       importing_csv_from(file) do
+        logger.info("[INFO] Starting to import #{row}")
         playlist = create_playlist!
-        associate_mp3_to(playlist)
+        associate_mp3_to(playlist) if playlist
       end
     end
 
@@ -20,6 +21,9 @@ module Importers
 
     def create_playlist!
       Playlist.create!(id: row['id'], user: User.find(row['user_id']))
+    rescue ActiveRecord::RecordNotFound => error
+      logger.error(error_message_from(error))
+      nil
     end
 
     def associate_mp3_to(playlist)
