@@ -11,4 +11,8 @@ class Playlist < ActiveRecord::Base
     self.name = "#{id}_playlist_#{user.id}"
     save!
   end
+
+  def mp3_ids
+    playlistings.pluck(:mp3_id)
+  end
 end
