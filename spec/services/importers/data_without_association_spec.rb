@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Importer do
+describe Importers::DataWithoutAssociation do
   describe '#import' do
     context 'when importing user_data' do
       let(:logger) { instance_double(Logger) }
@@ -38,8 +38,8 @@ describe Importer do
           allow(logger).to receive(:info)
 
           expect(logger).to receive(:error)
-            .with(include("have an error: unknown attribute '' for User. You "\
-              'must take a look to the original file'))
+            .with(include('have an error ActiveRecord::UnknownAttributeError: unknown '\
+              "attribute '' for User. You must take a look to the original file"))
             .once
           expect { described_class.new('user').import(file) }
             .to change { User.count }.by 3
@@ -82,8 +82,8 @@ describe Importer do
           allow(logger).to receive(:info)
 
           expect(logger).to receive(:error)
-            .with(include("have an error: unknown attribute '' for Mp3. You "\
-              'must take a look to the original file'))
+            .with(include('have an error ActiveRecord::UnknownAttributeError: unknown '\
+              "attribute '' for Mp3. You must take a look to the original file"))
             .once
           expect { described_class.new('mp3').import(file) }
             .to change { Mp3.count }.by 3

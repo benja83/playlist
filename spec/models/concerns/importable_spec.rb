@@ -17,7 +17,8 @@ describe Importable do
     end
     importer = double('importer', import: nil)
 
-    expect(Importer).to receive(:new).with('DummyClass').and_return(importer)
+    expect(Importers::DataWithoutAssociation).to receive(:new).with('DummyClass')
+      .and_return(importer)
 
     DummyClass.import(double('file'))
   end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe PlaylistImporter do
+describe Importers::Playlists do
   describe '#import' do
     context 'when starting the importation' do
       let(:logger) { instance_double(Logger) }

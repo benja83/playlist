@@ -5,7 +5,7 @@ module Importable
 
   included do
     def self.import(file)
-      Importer.new(name).import(file)
+      Importers::DataWithoutAssociation.new(name).import(file)
     end
   end
 end
