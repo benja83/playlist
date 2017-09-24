@@ -15,6 +15,15 @@ describe PlaylistImporter do
 
         described_class.new.import(file)
       end
+      it 'does something' do
+        fixture_file_path = Rails.root.join('spec/fixture/playlist_data.csv')
+        file = Rack::Test::UploadedFile.new(fixture_file_path)
+        allow(Logger).to receive(:new).and_return(logger)
+
+        user = create(:user)
+
+        described_class.new.import(file)
+      end
     end
   end
 end
