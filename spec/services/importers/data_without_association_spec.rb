@@ -17,7 +17,7 @@ describe Importers::DataWithoutAssociation do
           described_class.new('user').import(file)
         end
       end
-      context 'when importing a csv file well formated' do
+      context 'when importing a CSV file well formatted' do
         it 'creates the users with the right id' do
           fixture_file_path = Rails.root.join('spec/fixture/user_data.csv')
           file = Rack::Test::UploadedFile.new(fixture_file_path)
@@ -28,8 +28,8 @@ describe Importers::DataWithoutAssociation do
           expect(User.last.id).to eq 22
         end
       end
-      context 'when importing a csv file wrong formated' do
-        it 'creates the users with the right id and log the error' do
+      context 'when importing a CSV file not well formatted' do
+        it 'creates the users with the right id and log the errors' do
           filename = 'user_data_wrong_format.csv'
           fixture_file_path = Rails.root.join("spec/fixture/#{filename}")
           file = Rack::Test::UploadedFile.new(fixture_file_path)
@@ -61,7 +61,7 @@ describe Importers::DataWithoutAssociation do
           described_class.new('mp3').import(file)
         end
       end
-      context 'when importing a csv file well formated' do
+      context 'when importing a CSV file well formatted' do
         it 'creates the users with the right id' do
           fixture_file_path = Rails.root.join('spec/fixture/mp3_data.csv')
           file = Rack::Test::UploadedFile.new(fixture_file_path)
@@ -72,7 +72,7 @@ describe Importers::DataWithoutAssociation do
           expect(Mp3.last.id).to eq 22
         end
       end
-      context 'when importing a csv file wrong formated' do
+      context 'when importing a CSV file wrong formatted' do
         it 'creates the users with the right id and log the error' do
           filename = 'mp3_data_wrong_format.csv'
           fixture_file_path = Rails.root.join("spec/fixture/#{filename}")
