@@ -15,4 +15,8 @@ class Playlist < ActiveRecord::Base
   def mp3_ids
     playlistings.pluck(:mp3_id)
   end
+
+  def self.import(file)
+    Importers::Playlists.new.import(file)
+  end
 end

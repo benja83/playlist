@@ -55,6 +55,15 @@
                         <% end %>
                     </div>
                 </div>
+                <div class="box">
+                    Import playlist data
+                    <div class="form">
+                        <%= form_tag import_playlists_path, multipart: true do %>
+                            <%= file_field_tag :file, required: true %>
+                            <%= submit_tag 'Import CSV!' %>
+                        <% end %>
+                    </div>
+                </div>
             </th>
         </tr>
     </tbody>

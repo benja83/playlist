@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :mp3s, only: [] do
     collection { post :import }
   end
+  resources :playlists, only: [] do
+    collection { post :import }
+  end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
