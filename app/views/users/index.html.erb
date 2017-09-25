@@ -21,6 +21,7 @@
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>User_name</th>
+                            <th>Playlist</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,7 @@
                                 <th><%= user.last_name %></th>
                                 <th><%= user.email %></th>
                                 <th><%= user.user_name %></th>
+                                <th><%= user.playlists.map(&:name) %></th>
                             </tr>
                         <% end %>
                     </tbody>
