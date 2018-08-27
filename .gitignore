@@ -51,6 +51,7 @@ build-iPhoneSimulator/
 
 # Ignore bundler config.
 /.bundle
+/vendor
 
 # Ignore all logfiles and tempfiles.
 /log/*
